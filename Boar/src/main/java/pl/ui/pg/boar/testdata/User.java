@@ -2,6 +2,7 @@ package pl.ui.pg.boar.testdata;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -13,6 +14,7 @@ public class User {
     private String password;
     private String name;
     private List<UserRole> roles;
+    private Map<String, String> params;
 
     public User() {
     }
@@ -67,4 +69,17 @@ public class User {
     public void setRoles(List<UserRole> roles) {
         this.roles = roles;
     }
+
+    public Map<String, String> getParams() {
+        return params;
+    }
+
+    public void setParams(Map<String, String> params) {
+        this.params = params;
+    }
+
+    public String getParam(String paramName) {
+        return params.get(paramName);
+    }
+
 }
