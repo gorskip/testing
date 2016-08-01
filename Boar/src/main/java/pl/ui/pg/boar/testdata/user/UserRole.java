@@ -1,4 +1,4 @@
-package pl.ui.pg.boar.testdata;
+package pl.ui.pg.boar.testdata.user;
 
 /**
  *

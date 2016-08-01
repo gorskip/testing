@@ -1,4 +1,4 @@
-package pl.ui.pg.boar.testdata;
+package pl.ui.pg.boar.testdata.user;
 
 import java.util.Arrays;
 import java.util.List;
@@ -81,5 +81,4 @@ public class User {
     public String getParam(String paramName) {
         return params.get(paramName);
     }
-
 }
