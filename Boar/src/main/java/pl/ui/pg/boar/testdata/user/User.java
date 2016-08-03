@@ -3,23 +3,24 @@ package pl.ui.pg.boar.testdata.user;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import pl.ui.pg.boar.testdata.TestData;
 
 /**
  *
- * @author Przemo
+ * @author gorskip
  */
-public class User {
+public class User extends TestData {
 
     private String login;
     private String password;
     private String name;
-    private List<UserRole> roles;
-    private Map<String, String> params;
+    private List<String> roles;
+    private Map<String, Object> params;
 
     public User() {
     }
 
-    public User(UserRole... roles) {
+    public User(String... roles) {
         this.roles = Arrays.asList(roles);
     }
 
@@ -33,9 +34,14 @@ public class User {
         this.name = name;
     }
 
-    public User(String login, String password, String name, UserRole... roles) {
+    public User(String login, String password, String name, String... roles) {
         this(login, password, name);
         this.roles = Arrays.asList(roles);
+    }
+
+    public User(String login, String password, String name, List<String> roles) {
+        this(login, password, name);
+        this.roles = roles;
     }
 
     public String getLogin() {
@@ -62,23 +68,23 @@ public class User {
         this.name = name;
     }
 
-    public List<UserRole> getRoles() {
+    public List<String> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<UserRole> roles) {
+    public void setRoles(List<String> roles) {
         this.roles = roles;
     }
 
-    public Map<String, String> getParams() {
+    public Map<String, Object> getParams() {
         return params;
     }
 
-    public void setParams(Map<String, String> params) {
+    public void setParams(Map<String, Object> params) {
         this.params = params;
     }
 
-    public String getParam(String paramName) {
+    public Object getParam(String paramName) {
         return params.get(paramName);
     }
 }
