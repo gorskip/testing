@@ -6,6 +6,7 @@ import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.JsonValue;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import pl.ui.pg.boar.exceptions.ParseException;
 import pl.ui.pg.boar.testdata.provider.UserProvider;
@@ -35,7 +36,11 @@ public class JsonUserProvider extends JsonDataProvider implements UserProvider {
 
     @Override
     public List<User> build() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<User> users = new ArrayList<>();
+        for (JsonValue value : getUsers()) {
+            users.add(buildUser(value));
+        }
+        return users;
     }
 
     private User buildUser(JsonValue jsonValue) {
