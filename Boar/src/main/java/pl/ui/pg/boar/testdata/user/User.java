@@ -87,4 +87,8 @@ public class User extends TestData {
     public Object getParam(String paramName) {
         return params.get(paramName);
     }
+
+    public boolean hasAllRoles(List<String> seekingRoles) {
+        return roles.containsAll(seekingRoles);
+    }
 }
