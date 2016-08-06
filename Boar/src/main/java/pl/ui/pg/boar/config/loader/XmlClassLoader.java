@@ -30,7 +30,7 @@ public class XmlClassLoader {
         attachJar(tests.toURL());
         List<XmlClass> classes = new ArrayList<>();
         ClassPath cp = ClassPath.from(Thread.currentThread().getContextClassLoader());
-        for (ClassPath.ClassInfo info : cp.getTopLevelClassesRecursive("pl.ui.pg.boartests")) {
+        for (ClassPath.ClassInfo info : cp.getTopLevelClassesRecursive(testPackage)) {
             classes.add(new XmlClass(info.getName()));
         }
         return classes;
