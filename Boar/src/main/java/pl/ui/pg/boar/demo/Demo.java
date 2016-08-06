@@ -22,12 +22,12 @@ public class Demo {
 
         Boar boar = new Boar();
         boar
-                .prepareTestParams(new JsonTestParamsProvider(config.getTestParamsFilePath()))
-                .prepareUserParams(new JsonUserProvider(config.getUsersFilePath()))
-                .prepareScenarios(new SimpleScenariosProvider(config.getScenarioListFilePath()))
-                .prepareDriverConfiguration(config.getDriverConfigFilePath());
+                .setTestParams(new JsonTestParamsProvider(config.getTestParamsFilePath()))
+                .setUserParams(new JsonUserProvider(config.getUsersFilePath()))
+                .setScenarios(new SimpleScenariosProvider(config.getScenarioListFilePath()))
+                .setDriverConfiguration(config.getDriverConfigFilePath())
+                .setTestJar(config.getTestJar(), config.getTestPackage());
         boar.run();
-
     }
 
     private static Config prepareConfig(String filePath) {
@@ -36,6 +36,7 @@ public class Demo {
             return new ConfigBuilder()
                     .withTestParamsFilePath(configReader.getTestParamsFilePath())
                     .withTestClassPath(configReader.getTestClassPath())
+                    .withTestPackage(configReader.getTestPackage())
                     .withUsersFilePath(configReader.getUsersFilePath())
                     .withScenarioListFilePath(configReader.getScenarioListFilePath())
                     .withDriverConfigFilePath(configReader.getDriverConfigPath())
