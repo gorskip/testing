@@ -4,15 +4,15 @@ import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonArray;
 import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.JsonValue;
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import pl.ui.pg.boar.exceptions.ParseException;
 import pl.ui.pg.boar.testdata.provider.UserProvider;
 import pl.ui.pg.boar.testdata.provider.predicate.UserParamsPredicate;
 import pl.ui.pg.boar.testdata.user.User;
-import pl.ui.pg.boar.util.BoarFileUtil;
+import pl.ui.pg.boar.utils.BoarFileUtils;
 
 /**
  *
@@ -26,11 +26,11 @@ public class JsonUserProvider extends JsonDataProvider implements UserProvider {
 
     private final JsonObject root;
 
-    public JsonUserProvider(File file) {
+    public JsonUserProvider(Path pathFile) {
         try {
-            root = Json.parse(BoarFileUtil.readFile(file)).asObject();
+            root = Json.parse(BoarFileUtils.readFile(pathFile.toFile())).asObject();
         } catch (IOException ex) {
-            throw new ParseException("Cannot parse file " + file.getAbsolutePath(), ex);
+            throw new ParseException("Cannot parse file " + pathFile.toString(), ex);
         }
     }
 
@@ -51,13 +51,10 @@ public class JsonUserProvider extends JsonDataProvider implements UserProvider {
         List<String> roles = getUserRoles(userJson);
         User user = new User(login, password, name, roles);
         user.setParams(buildAdditionalParams(root, new UserParamsPredicate()));
-
         return new User(login, password, name, roles);
-
     }
 
     private JsonArray getUsers() {
         return root.get("users").asArray();
     }
-
 }

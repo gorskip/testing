@@ -4,7 +4,7 @@ import com.eclipsesource.json.JsonArray;
 import java.util.List;
 import java.util.Map;
 import pl.ui.pg.boar.exceptions.TestParamFormatException;
-import pl.ui.pg.boar.util.JsonUtils;
+import pl.ui.pg.boar.utils.JsonUtils;
 
 /**
  *

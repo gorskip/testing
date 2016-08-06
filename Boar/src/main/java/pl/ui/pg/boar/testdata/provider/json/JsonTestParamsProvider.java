@@ -4,15 +4,15 @@ import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonArray;
 import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.JsonValue;
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import pl.ui.pg.boar.exceptions.ParseException;
 import pl.ui.pg.boar.testdata.data.TestParams;
 import pl.ui.pg.boar.testdata.provider.TestParamsProvider;
 import pl.ui.pg.boar.testdata.provider.predicate.TestParamsPredicate;
-import pl.ui.pg.boar.util.BoarFileUtil;
+import pl.ui.pg.boar.utils.BoarFileUtils;
 
 /**
  *
@@ -26,11 +26,11 @@ public class JsonTestParamsProvider extends JsonDataProvider implements TestPara
 
     private final JsonObject root;
 
-    public JsonTestParamsProvider(File file) {
+    public JsonTestParamsProvider(Path filePath) {
         try {
-            root = Json.parse(BoarFileUtil.readFile(file)).asObject();
+            root = Json.parse(BoarFileUtils.readFile(filePath.toFile())).asObject();
         } catch (IOException ex) {
-            throw new ParseException("Cannot parse file " + file.getAbsolutePath(), ex);
+            throw new ParseException("Cannot parse file " + filePath.toString(), ex);
         }
     }
 

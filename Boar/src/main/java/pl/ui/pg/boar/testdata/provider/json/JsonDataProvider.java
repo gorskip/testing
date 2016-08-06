@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import pl.ui.pg.boar.util.JsonUtils;
+import pl.ui.pg.boar.utils.JsonUtils;
 
 /**
  *
