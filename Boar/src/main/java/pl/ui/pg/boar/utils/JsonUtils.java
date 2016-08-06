@@ -1,4 +1,4 @@
-package pl.ui.pg.boar.util;
+package pl.ui.pg.boar.utils;
 
 import com.eclipsesource.json.JsonArray;
 import com.eclipsesource.json.JsonObject;
