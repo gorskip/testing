@@ -8,18 +8,19 @@ import java.nio.file.Path;
  */
 public class Config {
 
-    private Path testClassPath;
+    private String testJar;
+    private String testPackage;
     private Path testParamsFilePath;
     private Path usersFilePath;
     private Path scenarioListFilePath;
     private Path driverConfigFilePath;
 
-    public Path getTestClassPath() {
-        return testClassPath;
+    public String getTestJar() {
+        return testJar;
     }
 
-    public void setTestClassPath(Path testClassPath) {
-        this.testClassPath = testClassPath;
+    public void setTestJar(String testJar) {
+        this.testJar = testJar;
     }
 
     public Path getTestParamsFilePath() {
@@ -52,6 +53,14 @@ public class Config {
 
     public Path getDriverConfigFilePath() {
         return driverConfigFilePath;
+    }
+
+    public String getTestPackage() {
+        return testPackage;
+    }
+
+    public void setTestPackage(String testPackage) {
+        this.testPackage = testPackage;
     }
 
 }

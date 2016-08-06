@@ -11,7 +11,7 @@ public class ConfigBuilder {
     private Config config;
 
     public ConfigBuilder withTestClassPath(String path) {
-        config.setTestClassPath(new File(path).toPath());
+        config.setTestJar(path);
         return this;
     }
 
@@ -32,6 +32,11 @@ public class ConfigBuilder {
 
     public ConfigBuilder withDriverConfigFilePath(String path) {
         config.setDriverConfigFilePath(new File(path).toPath());
+        return this;
+    }
+
+    public ConfigBuilder withTestPackage(String testPackage) {
+        config.setTestPackage(testPackage);
         return this;
     }
 

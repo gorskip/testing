@@ -38,4 +38,8 @@ public class ConfigReader extends PropReader {
     public String getDriverConfigPath() {
         return prop.getProperty("driverConfig");
     }
+
+    public String getTestPackage() {
+        return prop.getProperty("testPackage");
+    }
 }
